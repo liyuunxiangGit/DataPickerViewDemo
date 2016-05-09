@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-
-@interface ViewController ()
-
+#import "dataPickerView.h"
+@interface ViewController ()<dataPickerViewDelegate>
+@property (nonatomic,strong) dataPickerView *dataP;
 @end
 
 @implementation ViewController
@@ -17,7 +17,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.dataP = [[dataPickerView alloc]init];
+    self.dataP.dateDelegate= self;
+
 }
+- (IBAction)button:(id)sender {
+//    dataPickerView *dataPicker = [[dataPickerView alloc]init];
+    
+           [self.dataP dataPickerViewWithFatherView:self.view AndDataPickerMinuteInterval:15 AddDataPickerBackgroundColor:[UIColor whiteColor] AddDataPickerDatePickerMode:UIDatePickerModeDateAndTime];
+    
+
+ 
+   }
+-(void)dataPickerWithConfirmData:(NSString *)data selfView:(dataPickerView *)dataPickerView
+{
+    NSLog(@"%@",dataPickerView.dataPicker.date);
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

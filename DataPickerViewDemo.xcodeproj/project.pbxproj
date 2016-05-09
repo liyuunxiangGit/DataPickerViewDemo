@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B978B9AB1CDD7916006C577D /* 蒙版.png in Resources */ = {isa = PBXBuildFile; fileRef = B978B9AA1CDD7916006C577D /* 蒙版.png */; };
 		B9FEC1CA1CDC7F0D00D44195 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FEC1C91CDC7F0D00D44195 /* main.m */; };
 		B9FEC1CD1CDC7F0D00D44195 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FEC1CC1CDC7F0D00D44195 /* AppDelegate.m */; };
 		B9FEC1D01CDC7F0D00D44195 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FEC1CF1CDC7F0D00D44195 /* ViewController.m */; };
 		B9FEC1D31CDC7F0D00D44195 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9FEC1D11CDC7F0D00D44195 /* Main.storyboard */; };
 		B9FEC1D51CDC7F0D00D44195 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9FEC1D41CDC7F0D00D44195 /* Assets.xcassets */; };
 		B9FEC1D81CDC7F0D00D44195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9FEC1D61CDC7F0D00D44195 /* LaunchScreen.storyboard */; };
+		B9FEC1E31CDC834100D44195 /* dataPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9FEC1E21CDC834100D44195 /* dataPickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B978B9AA1CDD7916006C577D /* 蒙版.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "蒙版.png"; sourceTree = "<group>"; };
 		B9FEC1C51CDC7F0D00D44195 /* DataPickerViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataPickerViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FEC1C91CDC7F0D00D44195 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9FEC1CB1CDC7F0D00D44195 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +29,8 @@
 		B9FEC1D41CDC7F0D00D44195 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9FEC1D71CDC7F0D00D44195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9FEC1D91CDC7F0D00D44195 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9FEC1E11CDC834100D44195 /* dataPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataPickerView.h; sourceTree = "<group>"; };
+		B9FEC1E21CDC834100D44195 /* dataPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataPickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,9 @@
 				B9FEC1CC1CDC7F0D00D44195 /* AppDelegate.m */,
 				B9FEC1CE1CDC7F0D00D44195 /* ViewController.h */,
 				B9FEC1CF1CDC7F0D00D44195 /* ViewController.m */,
+				B9FEC1E11CDC834100D44195 /* dataPickerView.h */,
+				B9FEC1E21CDC834100D44195 /* dataPickerView.m */,
+				B978B9AA1CDD7916006C577D /* 蒙版.png */,
 				B9FEC1D11CDC7F0D00D44195 /* Main.storyboard */,
 				B9FEC1D41CDC7F0D00D44195 /* Assets.xcassets */,
 				B9FEC1D61CDC7F0D00D44195 /* LaunchScreen.storyboard */,
@@ -138,6 +146,7 @@
 			files = (
 				B9FEC1D81CDC7F0D00D44195 /* LaunchScreen.storyboard in Resources */,
 				B9FEC1D51CDC7F0D00D44195 /* Assets.xcassets in Resources */,
+				B978B9AB1CDD7916006C577D /* 蒙版.png in Resources */,
 				B9FEC1D31CDC7F0D00D44195 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +160,7 @@
 			files = (
 				B9FEC1D01CDC7F0D00D44195 /* ViewController.m in Sources */,
 				B9FEC1CD1CDC7F0D00D44195 /* AppDelegate.m in Sources */,
+				B9FEC1E31CDC834100D44195 /* dataPickerView.m in Sources */,
 				B9FEC1CA1CDC7F0D00D44195 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +312,7 @@
 				B9FEC1DE1CDC7F0D00D44195 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
