@@ -51,7 +51,7 @@
     self.dataPicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:0];
     self.dataPicker.backgroundColor = backColor;
     self.dataPicker.datePickerMode = dataPickerMode;
-  
+    [self.dataPicker addTarget:self action:@selector(changeDatePickers:) forControlEvents:UIControlEventValueChanged];
     [dataPicBacView addSubview:self.dataPicker];
     //取消按钮
     UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -93,30 +93,42 @@
         
     }];
 
-    
+
     
     
     return pickerBackView;
 }
-- (void)cancelButtonPressAction:(id)sender{
-    NSLog(@"sdf");
-}
-#pragma mark - 弹出时间选择器上 确认和取消按钮对应的方法 -
-- (void)confirmButtonPressAction:(id)sender {
+-(void)changeDatePickers:(UIDatePicker *)datePicker
+{
+//    NSLog(@"%@",datePicker.date);
+//    self.dataPicker.date = datePicker.date;
+    
     NSDate  *dates = [self.dataPicker date]; // 获取被选中的时间
     NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
     selectDateFormatter.dateFormat = @"yyyy年MM月dd日 HH:mm"; // 设置时间和日期的格式
     NSString *dateAndTime = [selectDateFormatter stringFromDate:dates]; // 把date类型转为设置好格式的string类型
-    NSLog(@"%@",self.dataPicker.date);
-//        NSLog(@" %@ %@",__func__,dateAndTime);
+//    NSLog(@"%@",self.dataPicker.date);
+    //        NSLog(@" %@ %@",__func__,dateAndTime);
     if ([self.dateDelegate respondsToSelector:@selector(dataPickerWithConfirmData:selfView:)]) {
         [self.dateDelegate dataPickerWithConfirmData:nil selfView:self];
     }
-    [self removeFromSuperview];
+
+    
+}
+-(void)setDataPicker:(UIDatePicker *)dataPicker
+{
+    _dataPicker = dataPicker;
+}
+- (void)cancelButtonPressAction:(id)sender{
+     [self removeFromSuperview];
+}
+#pragma mark - 弹出时间选择器上 确认和取消按钮对应的方法 -
+- (void)confirmButtonPressAction:(id)sender {
+        [self removeFromSuperview];
 }
 
 -(void)dismissTheView:(id)sender{
-    NSLog(@"remobe");
+//    NSLog(@"remobe");
     [self removeFromSuperview];
 }
 

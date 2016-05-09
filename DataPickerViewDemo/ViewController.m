@@ -10,6 +10,7 @@
 #import "dataPickerView.h"
 @interface ViewController ()<dataPickerViewDelegate>
 @property (nonatomic,strong) dataPickerView *dataP;
+@property (nonatomic,strong) UILabel *label;
 @end
 
 @implementation ViewController
@@ -20,7 +21,12 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.dataP = [[dataPickerView alloc]init];
     self.dataP.dateDelegate= self;
-
+    
+    _label = [[UILabel alloc]init];
+    _label.frame = CGRectMake(20, 40, 260, 25);
+//    _label.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:_label];
+    
 }
 - (IBAction)button:(id)sender {
 //    dataPickerView *dataPicker = [[dataPickerView alloc]init];
@@ -33,6 +39,7 @@
 -(void)dataPickerWithConfirmData:(NSString *)data selfView:(dataPickerView *)dataPickerView
 {
     NSLog(@"%@",dataPickerView.dataPicker.date);
+    self.label.text = [NSString stringWithFormat:@"%@",dataPickerView.dataPicker.date] ;
 }
 
 
