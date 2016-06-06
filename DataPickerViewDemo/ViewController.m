@@ -19,8 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
-    self.dataP = [[dataPickerView alloc]init];
-    self.dataP.dateDelegate= self;
+    
     
     _label = [[UILabel alloc]init];
     _label.frame = CGRectMake(20, 40, 260, 25);
@@ -30,8 +29,16 @@
 }
 - (IBAction)button:(id)sender {
 //    dataPickerView *dataPicker = [[dataPickerView alloc]init];
+    if (self.dataP == nil) {
+        self.dataP = [[dataPickerView alloc]init];
+        self.dataP.dateDelegate= self;
+         [self.dataP dataPickerViewWithFatherView:self.view AndDataPickerMinuteInterval:15 AddDataPickerBackgroundColor:[UIColor whiteColor] AddDataPickerDatePickerMode:UIDatePickerModeDateAndTime];
+       
+        
+    }
+    [self.view addSubview:self.dataP];
+
     
-           [self.dataP dataPickerViewWithFatherView:self.view AndDataPickerMinuteInterval:15 AddDataPickerBackgroundColor:[UIColor whiteColor] AddDataPickerDatePickerMode:UIDatePickerModeDateAndTime];
     
 
  

@@ -16,12 +16,11 @@
 @end
 
 @interface dataPickerView : UIView
-{
-    UIView *dataaaaaaa;
-}
+
 @property (nonatomic,weak) id<dataPickerViewDelegate> dateDelegate;
 
 @property (nonatomic,strong) dataPickerView *pickerBackView;
+@property (nonatomic,strong) UIDatePicker *fineldatePicker;
 @property (nonatomic,strong) UIDatePicker *dataPicker;
 
 //-(instancetype)dataPickerViewWithFatherView:(UIView *)fatherView;

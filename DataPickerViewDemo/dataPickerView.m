@@ -15,9 +15,10 @@
 
 -(instancetype)dataPickerViewWithFatherView:(UIView *)fatherView AndDataPickerMinuteInterval:(NSInteger)interval AddDataPickerBackgroundColor:(UIColor *)backColor AddDataPickerDatePickerMode:(UIDatePickerMode)dataPickerMode
 {
-    dataPickerView *pickerBackView = [[dataPickerView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    pickerBackView.userInteractionEnabled = YES;
-    [fatherView addSubview:pickerBackView];
+//    dataPickerView *pickerBackView = [[dataPickerView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.frame = [UIScreen mainScreen].bounds;
+    self.userInteractionEnabled = YES;
+//    [fatherView addSubview:self];
 //    pickerBackView.backgroundColor = [UIColor redColor];
     
 
@@ -25,10 +26,10 @@
     
     UIImageView *dataPickerBackView = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     dataPickerBackView.image = [UIImage imageNamed:@"蒙版.png"];
-    [pickerBackView addSubview:dataPickerBackView];
+    [self addSubview:dataPickerBackView];
     dataPickerBackView.userInteractionEnabled = YES;
     UIView * tapView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    UITapGestureRecognizer * tapsGesture= [[UITapGestureRecognizer alloc] initWithTarget:pickerBackView action:@selector(dismissTheView:)];
+    UITapGestureRecognizer * tapsGesture= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissTheView:)];
     [tapView addGestureRecognizer:tapsGesture];
     [dataPickerBackView addSubview:tapView];
     
@@ -64,7 +65,7 @@
     [cancelButton setTitleColor:[UIColor colorWithRed:192/255.0 green:224/255.0 blue:87/255.0 alpha:1] forState:UIControlStateNormal];
     
     [cancelButton setBackgroundColor:[UIColor whiteColor]];
-    [cancelButton addTarget:pickerBackView action:@selector(cancelButtonPressAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButton addTarget:self action:@selector(cancelButtonPressAction:) forControlEvents:UIControlEventTouchUpInside];
     
     [dataPicBacView addSubview:cancelButton];
     
@@ -76,11 +77,13 @@
     [confirmButton setTitle:@"确定" forState:UIControlStateNormal];
     [confirmButton setTitleColor:[UIColor colorWithRed:192/255.0 green:224/255.0 blue:87/255.0 alpha:1] forState:UIControlStateNormal];
     [confirmButton setBackgroundColor:[UIColor whiteColor]];
-    [confirmButton addTarget:pickerBackView action:@selector(confirmButtonPressAction:) forControlEvents:UIControlEventTouchUpInside];
+    [confirmButton addTarget:self action:@selector(confirmButtonPressAction:) forControlEvents:UIControlEventTouchUpInside];
+
+
     
     [dataPicBacView addSubview:confirmButton];
   
-    [pickerBackView addSubview:dataPickerBackView];
+    [self addSubview:dataPickerBackView];
 //    UIWindow *keywindow = [[UIApplication sharedApplication] keyWindow];
 //    [keywindow addSubview:dataPickerBackView];
     
@@ -96,22 +99,22 @@
 
     
     
-    return pickerBackView;
+    return self;
 }
 -(void)changeDatePickers:(UIDatePicker *)datePicker
 {
 //    NSLog(@"%@",datePicker.date);
 //    self.dataPicker.date = datePicker.date;
     
-    NSDate  *dates = [self.dataPicker date]; // 获取被选中的时间
-    NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
-    selectDateFormatter.dateFormat = @"yyyy年MM月dd日 HH:mm"; // 设置时间和日期的格式
-    NSString *dateAndTime = [selectDateFormatter stringFromDate:dates]; // 把date类型转为设置好格式的string类型
-//    NSLog(@"%@",self.dataPicker.date);
-    //        NSLog(@" %@ %@",__func__,dateAndTime);
-    if ([self.dateDelegate respondsToSelector:@selector(dataPickerWithConfirmData:selfView:)]) {
-        [self.dateDelegate dataPickerWithConfirmData:nil selfView:self];
-    }
+//    NSDate  *dates = [self.dataPicker date]; // 获取被选中的时间
+//    NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
+//    selectDateFormatter.dateFormat = @"yyyy年MM月dd日 HH:mm"; // 设置时间和日期的格式
+//    NSString *dateAndTime = [selectDateFormatter stringFromDate:dates]; // 把date类型转为设置好格式的string类型
+////    NSLog(@"%@",self.dataPicker.date);
+//    //        NSLog(@" %@ %@",__func__,dateAndTime);
+//    if ([self.dateDelegate respondsToSelector:@selector(dataPickerWithConfirmData:selfView:)]) {
+//        [self.dateDelegate dataPickerWithConfirmData:nil selfView:self];
+//    }
 
     
 }
@@ -124,7 +127,19 @@
 }
 #pragma mark - 弹出时间选择器上 确认和取消按钮对应的方法 -
 - (void)confirmButtonPressAction:(id)sender {
-        [self removeFromSuperview];
+    NSDate  *dates = [self.dataPicker date]; // 获取被选中的时间
+    NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
+    selectDateFormatter.dateFormat = @"yyyy年MM月dd日 HH:mm"; // 设置时间和日期的格式
+    NSString *dateAndTime = [selectDateFormatter stringFromDate:dates]; // 把date类型转为设置好格式的string类型
+    //    NSLog(@"%@",self.dataPicker.date);
+    //        NSLog(@" %@ %@",__func__,dateAndTime);
+    if ([self.dateDelegate respondsToSelector:@selector(dataPickerWithConfirmData:selfView:)]) {
+        [self.dateDelegate dataPickerWithConfirmData:nil selfView:self];
+    }
+    
+
+    [self removeFromSuperview];
+    
 }
 
 -(void)dismissTheView:(id)sender{
